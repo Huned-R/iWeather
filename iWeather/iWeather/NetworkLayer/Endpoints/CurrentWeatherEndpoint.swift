@@ -18,7 +18,6 @@ extension CurrentWeatherEndpoint: RequestBuilder {
         
         var url: String = ""
         let env = Environment()
-        print(env.configuration(.BaseURL))
         switch self {
         case .currentWeather(let latitude, let longitude):
             url =  env.configuration(.BaseURL) + "weather?lat=\(latitude)&lon=\(longitude)&units=metric"
