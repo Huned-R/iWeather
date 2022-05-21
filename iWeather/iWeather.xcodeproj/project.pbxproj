@@ -14,6 +14,8 @@
 		835E2C5028395E3C00E5F49F /* CityImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C4F28395E3C00E5F49F /* CityImageView.swift */; };
 		835E2C5228395EC600E5F49F /* CurrentTemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C5128395EC600E5F49F /* CurrentTemperatureView.swift */; };
 		835E2C542839622100E5F49F /* CurrentPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C532839622100E5F49F /* CurrentPlaceView.swift */; };
+		835E2C56283965C200E5F49F /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C55283965C200E5F49F /* WeatherRow.swift */; };
+		835E2C582839744900E5F49F /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C572839744900E5F49F /* IntExtensions.swift */; };
 		83D8ADF92838B1BD003BC229 /* iWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8ADF82838B1BD003BC229 /* iWeatherApp.swift */; };
 		83D8ADFB2838B1BD003BC229 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8ADFA2838B1BD003BC229 /* ContentView.swift */; };
 		83D8ADFD2838B1C1003BC229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D8ADFC2838B1C1003BC229 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		835E2C4F28395E3C00E5F49F /* CityImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityImageView.swift; sourceTree = "<group>"; };
 		835E2C5128395EC600E5F49F /* CurrentTemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperatureView.swift; sourceTree = "<group>"; };
 		835E2C532839622100E5F49F /* CurrentPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlaceView.swift; sourceTree = "<group>"; };
+		835E2C55283965C200E5F49F /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		835E2C572839744900E5F49F /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		83D8ADF52838B1BD003BC229 /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D8ADF82838B1BD003BC229 /* iWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWeatherApp.swift; sourceTree = "<group>"; };
 		83D8ADFA2838B1BD003BC229 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				835E2C5128395EC600E5F49F /* CurrentTemperatureView.swift */,
 				835E2C4F28395E3C00E5F49F /* CityImageView.swift */,
 				831BECBB2839371600678244 /* DailyWeatherItemView.swift */,
+				835E2C55283965C200E5F49F /* WeatherRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			children = (
 				83D8AE1B2838CEA5003BC229 /* DoubleExtensions.swift */,
 				83D8AE1D2838D8BF003BC229 /* ViewExtensions.swift */,
+				835E2C572839744900E5F49F /* IntExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,11 +417,13 @@
 				83D8AE222838E0BC003BC229 /* APIService.swift in Sources */,
 				83D8AE1E2838D8BF003BC229 /* ViewExtensions.swift in Sources */,
 				835E2C5228395EC600E5F49F /* CurrentTemperatureView.swift in Sources */,
+				835E2C56283965C200E5F49F /* WeatherRow.swift in Sources */,
 				83D8AE5428391523003BC229 /* DailyForecastModel.swift in Sources */,
 				835E2C4E28395D4100E5F49F /* AppConstants.swift in Sources */,
 				83D8AE312838EC12003BC229 /* CurrentWeatherService.swift in Sources */,
 				83D8AE242838E0F7003BC229 /* RequestBuilder.swift in Sources */,
 				83D8ADFB2838B1BD003BC229 /* ContentView.swift in Sources */,
+				835E2C582839744900E5F49F /* IntExtensions.swift in Sources */,
 				83D8AE282838E191003BC229 /* APISession.swift in Sources */,
 				835E2C5028395E3C00E5F49F /* CityImageView.swift in Sources */,
 				83D8AE1C2838CEA5003BC229 /* DoubleExtensions.swift in Sources */,

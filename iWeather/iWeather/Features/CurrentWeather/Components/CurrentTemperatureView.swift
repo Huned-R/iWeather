@@ -9,21 +9,22 @@ import SwiftUI
 
 struct CurrentTemperatureView: View {
     
-    var temperature: String
+    var main: String
     var feelsLike: String
     
     var body: some View {
         
         HStack {
-            VStack(spacing: 20) {
+            VStack(spacing: 5) {
                 Image(systemName: "sun.dust")
-                    .font(.system(size: 40))
-                Text(temperature + "°")
+                    .font(.system(size: 20))
+                Text(main)
+                    .font(.subheadline)
             }
-            .frame(width: 150, alignment: .leading)
+            .frame(alignment: .leading)
             Spacer()
             Text(feelsLike + "°")
-                .font(.system(size: 100))
+                .font(.title)
                 .fontWeight(.bold)
                 .padding()
         }
@@ -32,6 +33,6 @@ struct CurrentTemperatureView: View {
 
 struct CurrentTemperatureView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentTemperatureView(temperature: "40", feelsLike: "50")
+        CurrentTemperatureView(main: "Clouds", feelsLike: "50")
     }
 }

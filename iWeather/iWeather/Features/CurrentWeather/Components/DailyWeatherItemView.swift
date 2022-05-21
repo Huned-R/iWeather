@@ -50,10 +50,3 @@ struct DailyWeatherItemView_Previews: PreviewProvider {
         DailyWeatherItemView(item: previewDaily)
     }
 }
-
-extension Int {
-    
-    func toDate() -> Date {
-        return Date(timeIntervalSince1970: Double(self))
-    }
-}

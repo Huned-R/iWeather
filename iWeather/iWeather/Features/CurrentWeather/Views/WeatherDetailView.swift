@@ -8,21 +8,67 @@
 import SwiftUI
 
 struct WeatherDetailView: View {
+    @SwiftUI.Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var dailyForecast: Daily
     
+    @GestureState private var dragOffset = CGSize.zero
+    
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                VStack {
-                    Text("\(dailyForecast.humidity ?? 50)")
+        
+        NavigationView {
+            VStack {
+                Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("\(dailyForecast.dt?.toDate().formatted(.dateTime.month().day()) ?? "")")
+                        .bold()
+                        .padding([.top, .bottom, .leading], 10)
+                    
+                    HStack {
+                        WeatherRow(logo: "thermometer", name: "Min temp", value: "\(dailyForecast.temp?.min.toRoundedString() ?? "0")°")
+                        Spacer()
+                        WeatherRow(logo: "thermometer", name: "Max temp", value: "\(dailyForecast.temp?.max.toRoundedString() ?? "0")°")
+                    }
+                    .padding([.leading, .trailing], 10)
+                    
+                    HStack {
+                        WeatherRow(logo: "wind", name: "Wind speed", value: "\(dailyForecast.windSpeed?.toRoundedString() ?? "0")ms")
+                        Spacer()
+                        WeatherRow(logo: "humidity", name: "Humidity", value: "\(dailyForecast.humidity ?? 0)%")
+                    }
+                    .padding([.leading, .trailing, .bottom], 10)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                .background(appColor)
+                .background(.white)
+                .cornerRadius(20, corners: [.allCorners])
+                .padding()
+                
+                Spacer()
             }
             
+            .foregroundColor(.black)
+            .background(appColor)
+            .ignoresSafeArea()
+            .foregroundColor(.white)
+            .navigationBarTitle("")
+            .navigationBarHidden(false)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: btnBack)
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
-        
+        .background(appColor)
+        .preferredColorScheme(.dark)
+    }
+    
+    fileprivate var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Text("← Go back")
+            }
+            .foregroundColor(.white)
+        }
     }
 }
 

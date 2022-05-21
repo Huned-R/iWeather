@@ -47,7 +47,7 @@ struct WeatherView: View {
                 
                 VStack {
                     
-                    CurrentTemperatureView(temperature: viewModel.weather!.weather.first?.main ?? "", feelsLike: viewModel.weather!.main.feelsLike.toRoundedString() )
+                    CurrentTemperatureView(main: viewModel.weather!.weather.first?.main ?? "", feelsLike: viewModel.weather!.main.feelsLike.toRoundedString() )
                     
                     Spacer()
                         .frame(height: 80)
