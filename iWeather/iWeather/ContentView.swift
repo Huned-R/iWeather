@@ -27,7 +27,7 @@ struct ContentView: View {
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-            .background(Color(hue: 0.603, saturation: 0.897, brightness: 0.314))
+            .background(appColor)
             .preferredColorScheme(.dark)
         }
     }

@@ -50,6 +50,10 @@ struct Daily: Codable {
     let uvi: Double?
 }
 
+extension Daily: Identifiable {
+    var id: UUID { return UUID() }
+}
+
 // MARK: - FeelsLike
 struct FeelsLike: Codable {
     let day, night, eve, morn: Double

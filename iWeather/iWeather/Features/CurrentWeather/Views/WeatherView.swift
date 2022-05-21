@@ -15,7 +15,18 @@ struct WeatherView: View {
     
     var body: some View {
         if viewModel.weather != nil {
-            weatherDetails
+            NavigationView {
+                ScrollView {
+                    weatherDetails
+                }
+                .ignoresSafeArea()
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            .background(appColor)
+            .preferredColorScheme(.dark)
         } else {
             LoadingView()
                 .task {
@@ -25,85 +36,77 @@ struct WeatherView: View {
     }
     
     fileprivate var weatherDetails: some View {
+        
         ZStack(alignment: .leading) {
             VStack {
-                HStack {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(viewModel.weather!.name)
-                            .bold().font(.title)
-                        
-                        Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                            .fontWeight(.light)
-                        
-                    }
-                    
-                    Spacer()
-                }
+                
+                CurrentPlaceView(name: viewModel.weather!.name)
+                .padding()
                 
                 Spacer()
                 
                 VStack {
-                    HStack {
-                        
-                        VStack(spacing: 20) {
-                            Image(systemName: "sun.dust")
-                                .font(.system(size: 40))
-                            
-                            Text(viewModel.weather!.weather.first?.main ?? "")
-                        }
-                        .frame(width: 150, alignment: .leading)
-                        
-                        Spacer()
-                        
-                        Text(viewModel.weather!.main.feelsLike.toRoundedString() + "°")
-                            .font(.system(size: 100))
-                            .fontWeight(.bold)
-                            .padding()
-                    }
+                    
+                    CurrentTemperatureView(temperature: viewModel.weather!.weather.first?.main ?? "", feelsLike: viewModel.weather!.main.feelsLike.toRoundedString() )
                     
                     Spacer()
                         .frame(height: 80)
                     
-                    AsyncImage(url: URL(string: "https://cdn.pixabay.com/photo/2020/01/24/21/33/city-4791269_960_720.png")) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 350)
-                    } placeholder: {
-                        ProgressView()
-                    }
+                    CityImageView()
                     
                     Spacer()
                     
                 }
                 .frame(maxWidth: .infinity)
+                .padding()
+                
+                dailyForecastList
+                    .edgesIgnoringSafeArea(.bottom)
             }
-            .padding()
-            
-            dailyForecastList
-            
+            .safeAreaInset(edge: .top, alignment: .center, spacing: 0) {
+                Color.clear
+                    .frame(height: 40)
+                    .background(appColor)
+            }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .background(Color(hue: 0.603, saturation: 0.897, brightness: 0.314))
+        .background(appColor)
         .preferredColorScheme(.dark)
+        
     }
     
     @ViewBuilder
     fileprivate var dailyForecastList: some View {
-        if viewModel.dailyForecast != nil {
+        if let dailyForecast = viewModel.dailyForecast {
             VStack {
                 Spacer()
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Daily Forecast")
+                    
+                    Text("Daily Forecast:")
+                        .font(.title2)
+                        .italic()
                         .bold()
                         .padding(.bottom)
+                    
+                    
+                    ForEach(dailyForecast.daily) { forecast in
+                        NavigationLink(destination: {
+                            WeatherDetailView(dailyForecast: forecast)
+                        }){
+                            DailyWeatherItemView(item: forecast)
+                        }
+                        
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding()
-                .padding(.bottom, 20)
-                .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-                .background(.white)
+                .background(appColor)
                 .cornerRadius(20, corners: [.topLeft, .topRight])
+                .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    Color.clear
+                        .frame(height: 20)
+                        .background(appColor)
+                }
             }
         } else {
             LoadingView()

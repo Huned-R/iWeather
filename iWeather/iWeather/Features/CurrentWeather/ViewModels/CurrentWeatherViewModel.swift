@@ -16,6 +16,7 @@ class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService{
     var apiSession: APIService
     @Published var weather: WeatherModel?
     @Published var dailyForecast: DailyForecast?
+    @Published var isCelcius: Bool = true
     
     var cancellables = Set<AnyCancellable>()
     
