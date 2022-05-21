@@ -24,7 +24,7 @@ extension CurrentWeatherEndpoint: RequestBuilder {
             url =  env.configuration(.BaseURL) + "weather?lat=\(latitude)&lon=\(longitude)&units=metric"
             
         case .dailyForecast(let latitude, let longitude):
-            url = env.configuration(.BaseURL) + "onecall?lat=\(latitude)&lon=\(longitude)&units=metric"
+            url = env.configuration(.BaseURL) + "onecall?lat=\(latitude)&lon=\(longitude)&units=metric&exclude=minutely,hourly,alerts"
         }
         
         url += "&appid=\(env.configuration(.APIKey))"

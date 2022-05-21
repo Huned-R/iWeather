@@ -28,10 +28,11 @@ struct APISession: APIService {
                 
                 if let response = response as? HTTPURLResponse {
                     if (200...299).contains(response.statusCode) {
-                        
                         return Just(data)
                             .decode(type: T.self, decoder: decoder)
-                            .mapError {_ in .decodingError}
+                            .mapError {error in
+                                    .decodingError(error.localizedDescription)
+                            }
                             .eraseToAnyPublisher()
                         
                     } else {

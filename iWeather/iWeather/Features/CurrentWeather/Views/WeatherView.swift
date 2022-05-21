@@ -80,11 +80,37 @@ struct WeatherView: View {
             }
             .padding()
             
+            dailyForecastList
             
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(Color(hue: 0.603, saturation: 0.897, brightness: 0.314))
         .preferredColorScheme(.dark)
+    }
+    
+    @ViewBuilder
+    fileprivate var dailyForecastList: some View {
+        if viewModel.dailyForecast != nil {
+            VStack {
+                Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Daily Forecast")
+                        .bold()
+                        .padding(.bottom)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .padding(.bottom, 20)
+                .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+                .background(.white)
+                .cornerRadius(20, corners: [.topLeft, .topRight])
+            }
+        } else {
+            LoadingView()
+                .task {
+                    viewModel.getDailyForecast(latitude: location.latitude, longitude: location.longitude)
+                }
+        }
     }
 }
 

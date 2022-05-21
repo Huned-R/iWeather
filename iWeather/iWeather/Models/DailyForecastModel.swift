@@ -21,18 +21,17 @@ struct Current: Codable {
     let dt, sunrise, sunset: Int
     let temp, feelsLike: Double
     let pressure, humidity: Int
-    let dewPoint: Double
-    let uvi, clouds, visibility: Int
+    let dewPoint, uvi: Double
+    let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double
     let weather: [Weather]
 }
 
 // MARK: - Weather
 struct Weather: Codable {
     let id: Int
-    let main, weatherDescription, icon: String
+    let main, description, icon: String
 }
 
 // MARK: - Daily
