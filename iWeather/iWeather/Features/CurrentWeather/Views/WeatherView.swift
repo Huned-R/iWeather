@@ -6,17 +6,30 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct WeatherView: View {
     
-    var weather: WeatherModel
+    var location: CLLocationCoordinate2D
+    @ObservedObject var viewModel = CurrentWeatherViewModel()
     
     var body: some View {
+        if viewModel.weather != nil {
+            weatherDetails
+        } else {
+            LoadingView()
+                .task {
+                    viewModel.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
+                }
+        }
+    }
+    
+    fileprivate var weatherDetails: some View {
         ZStack(alignment: .leading) {
             VStack {
                 HStack {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(weather.name)
+                        Text(viewModel.weather!.name)
                             .bold().font(.title)
                         
                         Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
@@ -36,13 +49,13 @@ struct WeatherView: View {
                             Image(systemName: "sun.dust")
                                 .font(.system(size: 40))
                             
-                            Text(weather.weather.first?.main ?? "")
+                            Text(viewModel.weather!.weather.first?.main ?? "")
                         }
                         .frame(width: 150, alignment: .leading)
                         
                         Spacer()
                         
-                        Text(weather.main.feelsLike.toRoundedString() + "°")
+                        Text(viewModel.weather!.main.feelsLike.toRoundedString() + "°")
                             .font(.system(size: 100))
                             .fontWeight(.bold)
                             .padding()
@@ -77,7 +90,7 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(weather: previewWeather)
+        WeatherView(location: CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417))
             .previewInterfaceOrientation(.portrait)
     }
 }

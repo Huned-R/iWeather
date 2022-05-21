@@ -12,6 +12,7 @@ struct APISession: APIService {
     
     func request<T>(with builder: RequestBuilder) -> AnyPublisher<T, APIError> where T: Decodable {
         
+        // Converts model to camel case.
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         

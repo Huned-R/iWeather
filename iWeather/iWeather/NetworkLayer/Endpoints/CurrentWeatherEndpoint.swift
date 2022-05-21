@@ -10,6 +10,7 @@ import CoreLocation
 
 enum CurrentWeatherEndpoint {
     case currentWeather(CLLocationDegrees, CLLocationDegrees)
+    case dailyForecast(CLLocationDegrees, CLLocationDegrees)
 }
 
 extension CurrentWeatherEndpoint: RequestBuilder {
@@ -21,6 +22,9 @@ extension CurrentWeatherEndpoint: RequestBuilder {
         switch self {
         case .currentWeather(let latitude, let longitude):
             url =  env.configuration(.BaseURL) + "weather?lat=\(latitude)&lon=\(longitude)&units=metric"
+            
+        case .dailyForecast(let latitude, let longitude):
+            url = env.configuration(.BaseURL) + "onecall?lat=\(latitude)&lon=\(longitude)&units=metric"
         }
         
         url += "&appid=\(env.configuration(.APIKey))"

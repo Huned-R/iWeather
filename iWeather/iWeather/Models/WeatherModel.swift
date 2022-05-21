@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Weather Model
 // Model of the response body we get from calling the OpenWeather API
 struct WeatherModel: Codable {
     var coord: CoordinatesResponse
@@ -41,9 +42,3 @@ struct WeatherModel: Codable {
         var deg: Double
     }
 }
-
-//extension WeatherModel.MainResponse {
-//    var feelsLike: Double { return feels_like }
-//    var tempMin: Double { return temp_min }
-//    var tempMax: Double { return temp_max }
-//}

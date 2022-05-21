@@ -12,8 +12,10 @@ import CoreLocation
 
 class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService{
     
+    
     var apiSession: APIService
     @Published var weather: WeatherModel?
+    @Published var dailyForecast: DailyForecast?
     
     var cancellables = Set<AnyCancellable>()
     
@@ -34,6 +36,22 @@ class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService{
             } receiveValue: { weather in
                 self.weather = weather
             }
+        cancellables.insert(cancellable)
+    }
+    
+    func getDailyForecast(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let cancellable = self.getDailyForecast(latitude: latitude, longitude: longitude)
+            .sink { result in
+                switch result {
+                case .failure(let error):
+                    print("Handle error: \(error)")
+                case .finished:
+                    break
+                }
+            } receiveValue: { dailyForecast in
+                self.dailyForecast = dailyForecast
+            }
+        
         cancellables.insert(cancellable)
     }
 }
