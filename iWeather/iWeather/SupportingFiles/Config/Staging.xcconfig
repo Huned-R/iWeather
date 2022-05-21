@@ -1,0 +1,12 @@
+//
+//  Staging.xcconfig
+//  iWeather
+//
+//  Created by Huned on 21/05/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+base_url    = {you_Staging_url}
+api_key     = {your_Staging_api_key}

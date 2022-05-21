@@ -17,13 +17,14 @@ extension CurrentWeatherEndpoint: RequestBuilder {
     var urlRequest: URLRequest {
         
         var url: String = ""
-        
+        let env = Environment()
+        print(env.configuration(.BaseURL))
         switch self {
         case .currentWeather(let latitude, let longitude):
-            url =  baseURL + "weather?lat=\(latitude)&lon=\(longitude)&units=metric"
+            url =  env.configuration(.BaseURL) + "weather?lat=\(latitude)&lon=\(longitude)&units=metric"
         }
         
-        url += "&appid=\(apiKey)"
+        url += "&appid=\(env.configuration(.APIKey))"
         guard let url = URL(string: url) else {
             preconditionFailure("Invalid URL format")
         }
