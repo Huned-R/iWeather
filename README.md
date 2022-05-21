@@ -16,7 +16,7 @@
 - [x] Uses Combine for observing data changes.
 - [x] Uses genric network layer over combine.
 - [x] Supports flavours/configs for Dev, Stage, Prod.
-- [ ] Display 7 day weather data.
+- [x] Display X days weather data.
 - [ ] Save weather data offline.
 - [ ] Background updates.
 
