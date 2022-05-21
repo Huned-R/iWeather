@@ -27,6 +27,7 @@
 		83D8AE2C2838E98E003BC229 /* CurrentWeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8AE2B2838E98E003BC229 /* CurrentWeatherEndpoint.swift */; };
 		83D8AE312838EC12003BC229 /* CurrentWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8AE302838EC12003BC229 /* CurrentWeatherService.swift */; };
 		83D8AE342838ED25003BC229 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8AE332838ED25003BC229 /* CurrentWeatherViewModel.swift */; };
+		83D8AE3A2838F702003BC229 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8AE392838F702003BC229 /* NetworkConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		83D8AE2B2838E98E003BC229 /* CurrentWeatherEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherEndpoint.swift; sourceTree = "<group>"; };
 		83D8AE302838EC12003BC229 /* CurrentWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherService.swift; sourceTree = "<group>"; };
 		83D8AE332838ED25003BC229 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		83D8AE392838F702003BC229 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		83D8AE1F2838E09D003BC229 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				83D8AE382838F6EE003BC229 /* NetworkConstants */,
 				83D8AE2A2838E967003BC229 /* Protocols */,
 				83D8AE292838E95E003BC229 /* Endpoints */,
 				83D8AE272838E191003BC229 /* APISession.swift */,
@@ -227,6 +230,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		83D8AE382838F6EE003BC229 /* NetworkConstants */ = {
+			isa = PBXGroup;
+			children = (
+				83D8AE392838F702003BC229 /* NetworkConstants.swift */,
+			);
+			path = NetworkConstants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D8AE3A2838F702003BC229 /* NetworkConstants.swift in Sources */,
 				83D8AE222838E0BC003BC229 /* APIService.swift in Sources */,
 				83D8AE1E2838D8BF003BC229 /* ViewExtensions.swift in Sources */,
 				83D8AE312838EC12003BC229 /* CurrentWeatherService.swift in Sources */,
