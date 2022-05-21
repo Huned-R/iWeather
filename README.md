@@ -5,7 +5,7 @@
 # iWeather
 <br />
 <p align="center">
-  Display weather using you current location and specified locations.
+  Display weather using you current location and a list of forecasts.
 </p>
 
 ## Features
