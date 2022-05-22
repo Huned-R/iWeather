@@ -16,7 +16,7 @@ struct WeatherView: View {
     var body: some View {
         if viewModel.weather != nil {
             NavigationView {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     weatherDetails
                 }
                 .ignoresSafeArea()
@@ -98,7 +98,7 @@ struct WeatherView: View {
                         }
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                //.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding()
                 .background(appColor)
                 .cornerRadius(20, corners: [.topLeft, .topRight])

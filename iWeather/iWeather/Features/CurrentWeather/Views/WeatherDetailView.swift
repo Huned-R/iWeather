@@ -52,7 +52,6 @@ struct WeatherDetailView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: btnBack)
             .navigationBarTitleDisplayMode(.inline)
-            
         }
         .background(appColor)
         .preferredColorScheme(.dark)
