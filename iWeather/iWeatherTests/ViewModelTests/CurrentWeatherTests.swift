@@ -10,12 +10,12 @@ import XCTest
 import Combine
 import CoreLocation
 
-class CurrentViewModelTests: XCTestCase {
+class CurrentWeatherTests: XCTestCase {
     
     var viewModel: CurrentWeatherViewModel!
     
     override func setUp() {
-        self.viewModel = CurrentWeatherViewModel(apiSession: MockApiSession(dummyStringResponse: dummyWeatherDataString), crudManager: MockPersistanceService())
+        self.viewModel = CurrentWeatherViewModel(apiSession: MockApiSession(dummyWeatherDataString), crudManager: MockPersistanceService())
     }
     
     override func tearDown() {
