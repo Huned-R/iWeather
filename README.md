@@ -15,9 +15,9 @@
 - [x] Build on Swift UI.
 - [x] Uses Combine for observing data changes.
 - [x] Uses genric network layer over combine.
-- [x] Supports flavours/configs for Dev, Stage, Prod.
+- [x] Supports flavours/configs for Dev, Stage, Prod. <b>(Although I think the config files are in git.ignore so you need to add them manually)</b>
 - [x] Display X days weather data.
-- [ ] Save weather data offline.
+- [x] Save weather data offline. --> Uses realm.
 - [ ] Background updates.
 
 [swift-image]:https://img.shields.io/badge/swift-5.0-green.svg
