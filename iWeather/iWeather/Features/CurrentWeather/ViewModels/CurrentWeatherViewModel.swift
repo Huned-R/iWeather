@@ -25,12 +25,10 @@ class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService, CurrentW
         self.crudManager = crudManager
     }
     
-    
+    //MARK: Get Current weather info. Should publish [WeatherModel]
     func getCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        
         if let data = self.getLocalWeatherData() {
             self.weather = data
-            print("Halllaaa \(data.main?.feelsLike)")
         }
         
         let cancellable = self.getCurrentWeather(latitude: latitude, longitude: longitude)
@@ -48,7 +46,13 @@ class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService, CurrentW
         cancellables.insert(cancellable)
     }
     
+    //MARK: Get info for x number f days. Should publish [DailyForecast]
     func getDailyForecast(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        
+        if let data = self.getLocalDailyForecasts() {
+            self.dailyForecast = data
+        }
+        
         let cancellable = self.getDailyForecast(latitude: latitude, longitude: longitude)
             .sink { result in
                 switch result {
@@ -59,6 +63,7 @@ class CurrentWeatherViewModel: ObservableObject, CurrentWeatherService, CurrentW
                 }
             } receiveValue: { dailyForecast in
                 self.dailyForecast = dailyForecast
+                self.addLocalDailyForecasts(dailyForecast: dailyForecast)
             }
         
         cancellables.insert(cancellable)

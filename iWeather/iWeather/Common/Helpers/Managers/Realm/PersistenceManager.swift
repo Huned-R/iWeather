@@ -11,6 +11,8 @@ import RealmSwift
 
 class PersistenceManager: PersistenceProtocol {
     
+    
+    //TODO: (huned-r) Add config here to update scheme automatically withouth crasing the app :/
     private let realm = try! Realm()
     var instance: Realm {
         return realm
@@ -72,6 +74,7 @@ class PersistenceManager: PersistenceProtocol {
         }
     }
     
+    //MARK: Update
     func updateObjects<T>(_ objects: [T]) throws where T: Object {
         if let realm = try? Realm() {
             

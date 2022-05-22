@@ -11,6 +11,8 @@ protocol CurrentWeatherRealmService {
     var crudManager: PersistenceProtocol {get}
     func getLocalWeatherData() -> WeatherModel?
     func addLocalWeatherData(weather: WeatherModel)
+    func getLocalDailyForecasts() -> DailyForecast?
+    func addLocalDailyForecasts(dailyForecast: DailyForecast)
 }
 
 extension CurrentWeatherRealmService {
@@ -22,5 +24,14 @@ extension CurrentWeatherRealmService {
     func addLocalWeatherData(weather: WeatherModel) {
         crudManager.removeAllObjectsOfType(WeatherModel.self)
         crudManager.saveObject(weather)
+    }
+    
+    func getLocalDailyForecasts() -> DailyForecast? {
+        return (crudManager.fetchObjects(DailyForecast.self)?.first) as? DailyForecast
+    }
+    
+    func addLocalDailyForecasts(dailyForecast: DailyForecast) {
+        crudManager.removeAllObjectsOfType(DailyForecast.self)
+        crudManager.saveObject(dailyForecast)
     }
 }
