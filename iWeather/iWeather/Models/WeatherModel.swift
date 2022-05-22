@@ -6,39 +6,39 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Weather Model
 // Model of the response body we get from calling the OpenWeather API
-struct WeatherModel: Codable {
-    var coord: CoordinatesResponse
-    var weather: [WeatherResponse]
-    var main: MainResponse
-    var name: String
-    var wind: WindResponse
+class WeatherModel: Object, Codable {
+    @objc dynamic var coord: CoordinatesResponse?
+    var weather = List<WeatherResponse>()
+    @objc dynamic var main: MainResponse?
+    @objc dynamic var name: String = ""
+    @objc dynamic var wind: WindResponse?
+}
 
-    struct CoordinatesResponse: Codable {
-        var lon: Double
-        var lat: Double
-    }
+class CoordinatesResponse: Object, Codable {
+    @objc dynamic var lon: Double = 0
+    @objc dynamic var lat: Double = 0
+}
 
-    struct WeatherResponse: Codable {
-        var id: Double
-        var main: String
-        var description: String
-        var icon: String
-    }
+class WeatherResponse: Object, Codable{
+    @objc dynamic var id: Double = 0
+    @objc dynamic var main: String = ""
+    @objc dynamic var icon: String = ""
+}
 
-    struct MainResponse: Codable {
-        var temp: Double
-        var feelsLike: Double
-        var tempMin: Double
-        var tempMax: Double
-        var pressure: Double
-        var humidity: Double
-    }
-    
-    struct WindResponse: Codable {
-        var speed: Double
-        var deg: Double
-    }
+class MainResponse: Object, Codable {
+    @objc dynamic var temp: Double = 0
+    @objc dynamic var feelsLike: Double = 0
+    @objc dynamic var tempMin: Double = 0
+    @objc dynamic var tempMax: Double = 0
+    @objc dynamic var pressure: Double = 0
+    @objc dynamic var humidity: Double = 0
+}
+
+class WindResponse: Object, Codable {
+    @objc dynamic var speed: Double = 0
+    @objc dynamic var deg: Double = 0
 }

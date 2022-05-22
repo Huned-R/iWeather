@@ -47,7 +47,7 @@ struct WeatherView: View {
                 
                 VStack {
                     
-                    CurrentTemperatureView(main: viewModel.weather!.weather.first?.main ?? "", feelsLike: viewModel.weather!.main.feelsLike.toRoundedString() )
+                    CurrentTemperatureView(main: viewModel.weather!.weather.first?.main ?? "", feelsLike: viewModel.weather!.main?.feelsLike.toRoundedString() ?? "0")
                     
                     Spacer()
                         .frame(height: 80)
@@ -88,14 +88,14 @@ struct WeatherView: View {
                         .bold()
                         .padding(.bottom)
                     
-                    
-                    ForEach(dailyForecast.daily) { forecast in
-                        NavigationLink(destination: {
-                            WeatherDetailView(dailyForecast: forecast)
-                        }){
-                            DailyWeatherItemView(item: forecast)
+                    if let daily = dailyForecast.daily {
+                        ForEach(daily) { forecast in
+                            NavigationLink(destination: {
+                                WeatherDetailView(dailyForecast: forecast)
+                            }){
+                                DailyWeatherItemView(item: forecast)
+                            }
                         }
-                        
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

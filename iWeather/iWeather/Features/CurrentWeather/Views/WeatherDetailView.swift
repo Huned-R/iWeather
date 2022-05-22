@@ -15,12 +15,11 @@ struct WeatherDetailView: View {
     @GestureState private var dragOffset = CGSize.zero
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 Spacer()
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("\(dailyForecast.dt?.toDate().formatted(.dateTime.month().day()) ?? "")")
+                    Text("\(dailyForecast.dt.toDate().formatted(.dateTime.month().day()))")
                         .bold()
                         .padding([.top, .bottom, .leading], 10)
                     
@@ -32,9 +31,9 @@ struct WeatherDetailView: View {
                     .padding([.leading, .trailing], 10)
                     
                     HStack {
-                        WeatherRow(logo: "wind", name: "Wind speed", value: "\(dailyForecast.windSpeed?.toRoundedString() ?? "0")ms")
+                        WeatherRow(logo: "wind", name: "Wind speed", value: "\(dailyForecast.windSpeed.toRoundedString() )ms")
                         Spacer()
-                        WeatherRow(logo: "humidity", name: "Humidity", value: "\(dailyForecast.humidity ?? 0)%")
+                        WeatherRow(logo: "humidity", name: "Humidity", value: "\(dailyForecast.humidity)%")
                     }
                     .padding([.leading, .trailing, .bottom], 10)
                 }
@@ -44,7 +43,6 @@ struct WeatherDetailView: View {
                 
                 Spacer()
             }
-            
             .foregroundColor(.black)
             .background(appColor)
             .ignoresSafeArea()

@@ -34,7 +34,7 @@ struct DailyWeatherItemView: View {
                 
                 Spacer()
                 
-                Text("\(item.dt?.toDate().formatted(.dateTime.month().day()) ?? "")")
+                Text("\(item.dt.toDate().formatted(.dateTime.month().day()) )")
                     .bold()
                     .font(.title3)
                 
