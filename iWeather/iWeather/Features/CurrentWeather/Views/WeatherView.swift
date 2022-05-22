@@ -98,7 +98,6 @@ struct WeatherView: View {
                         }
                     }
                 }
-                //.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding()
                 .background(appColor)
                 .cornerRadius(20, corners: [.topLeft, .topRight])
