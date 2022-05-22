@@ -15,7 +15,7 @@ class CurrentViewModelTests: XCTestCase {
     var viewModel: CurrentWeatherViewModel!
     
     override func setUp() {
-        self.viewModel = CurrentWeatherViewModel(apiSession: MockApiSession(dummyJson: "WeatherData.json"), crudManager: MockPersistanceService())
+        self.viewModel = CurrentWeatherViewModel(apiSession: MockApiSession(dummyStringResponse: dummyWeatherDataString), crudManager: MockPersistanceService())
     }
     
     override func tearDown() {
