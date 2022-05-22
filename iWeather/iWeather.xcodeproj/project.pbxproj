@@ -19,7 +19,6 @@
 		83D5CFB7283A014900F0D056 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 83D5CFB6283A014900F0D056 /* Realm */; };
 		83D5CFB9283A014900F0D056 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 83D5CFB8283A014900F0D056 /* RealmSwift */; };
 		83D5CFBB283A021500F0D056 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5CFBA283A021500F0D056 /* PersistenceManager.swift */; };
-		83D5CFBE283A128800F0D056 /* CRUDOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5CFBD283A128800F0D056 /* CRUDOperations.swift */; };
 		83D5CFC0283A1FF600F0D056 /* CurrentWeatherRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5CFBF283A1FF600F0D056 /* CurrentWeatherRealmService.swift */; };
 		83D5CFC2283A30A200F0D056 /* PersistanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5CFC1283A30A200F0D056 /* PersistanceProtocol.swift */; };
 		83D5CFC4283A316000F0D056 /* PersistanceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D5CFC3283A316000F0D056 /* PersistanceError.swift */; };
@@ -75,7 +74,6 @@
 		835E2C55283965C200E5F49F /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
 		835E2C572839744900E5F49F /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		83D5CFBA283A021500F0D056 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		83D5CFBD283A128800F0D056 /* CRUDOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDOperations.swift; sourceTree = "<group>"; };
 		83D5CFBF283A1FF600F0D056 /* CurrentWeatherRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherRealmService.swift; sourceTree = "<group>"; };
 		83D5CFC1283A30A200F0D056 /* PersistanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceProtocol.swift; sourceTree = "<group>"; };
 		83D5CFC3283A316000F0D056 /* PersistanceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceError.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				83D5CFC3283A316000F0D056 /* PersistanceError.swift */,
 				83D5CFC1283A30A200F0D056 /* PersistanceProtocol.swift */,
 				83D5CFBA283A021500F0D056 /* PersistenceManager.swift */,
-				83D5CFBD283A128800F0D056 /* CRUDOperations.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -213,8 +210,8 @@
 		83D8AE062838B768003BC229 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				83D5CFBC283A126B00F0D056 /* Realm */,
 				83D8AE072838B78A003BC229 /* LocationManager.swift */,
+				83D5CFBC283A126B00F0D056 /* Realm */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -529,7 +526,6 @@
 				835E2C582839744900E5F49F /* IntExtensions.swift in Sources */,
 				83D8AE282838E191003BC229 /* APISession.swift in Sources */,
 				835E2C5028395E3C00E5F49F /* CityImageView.swift in Sources */,
-				83D5CFBE283A128800F0D056 /* CRUDOperations.swift in Sources */,
 				83D8AE1C2838CEA5003BC229 /* DoubleExtensions.swift in Sources */,
 				83D8AE162838CCB5003BC229 /* ModelData.swift in Sources */,
 				83D8ADF92838B1BD003BC229 /* iWeatherApp.swift in Sources */,
